@@ -80,6 +80,11 @@ public class CharacterController : MonoBehaviour
         else _moveInput = Vector2.zero;
 
         _animator.SetBool("IsRunning", _moveInput.x != 0);
+        if (_isGrounded == false)
+        {
+            _animator.SetFloat("YVelocity", _rb2d.linearVelocityY);
+        }
+                
 
         if (_moveInput.x > 0)
             _isFacingRight = true;
